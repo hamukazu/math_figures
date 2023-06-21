@@ -5,9 +5,9 @@
 
 ## PDFの入手のしかた
 
-GitHubのリリースページ最新版のPDFがおいてあります。
+[GitHubのリリースページ](https://github.com/hamukazu/math_figures/releases)に最新版のPDFがおいてあります。
 
-あるいは、自分でコンパイルしたい場合はlualatexでコンパイルできまあす。lualatexが動く環境で以下をコマンドラインから入力してください。
+あるいは、自分でコンパイルしたい場合はlualatexでコンパイルできます。lualatexが動く環境で以下をコマンドラインから入力してください。
 
 ```
 > cd tex
