@@ -9,7 +9,7 @@
   --(C)node[midway,right=5pt]{$\sin\theta$}--cycle node[midway, above left=5pt]{1};
   \draw(P)--($(A)!(P)!(B)$);
   \draw(P)--($(B)!(P)!(C)$);
-  \draw(0.3,0)arc(0:{atan(4/3)}:0.3)node[midway, above right]{$\theta$};
+  \draw(0.3,0)arc(0:{atan(4/3)}:0.3)node[pos=0.2, above right]{$\theta$};
   \draw[decorate, decoration={brace, mirror, raise=4pt}](A)--(B);
   \draw[decorate, decoration={brace, mirror, raise=4pt}](B)--(C);
   \draw[decorate, decoration={brace, mirror, raise=4pt}](C)--(A);
@@ -35,14 +35,14 @@
   \draw[->] (-2.5,0)--(2.5,0);
   \draw[->] (0,-2.5)--(0,2.5);
   \draw(0,0)circle[radius=2];
-  \draw[-Stealth](0.5,0) arc(0:\a:0.5);
-  \node[above, font=\small]at(0.6,0){$\theta$};
+  \draw[-Stealth](0.5,0) arc(0:\a:0.5)
+  node[pos=0.2, above right, font=\small]{$\theta$};
   \draw(0,0)--(\a:2);
   \draw[-Stealth](0.3,0) arc(0:180-\a:0.3);
   \node[above, font=\small]at(-0.1,0.3){$\pi-\theta$};
   \draw(0,0)--(180-\a:2);
-  \draw[-stealth](0.4,0) arc(0:-\a:0.4);
-  \node[below, font=\small]at(0.55,0.1){$-\theta$};
+  \draw[-stealth](0.4,0) arc(0:-\a:0.4)
+  node[pos=0.2, below right, font=\small]{$-\theta$};
   \draw(0,0)--(-\a:2);
   \draw[dashed](\a:2)--(-\a:2);
   \draw[dashed](\a:2)--(180-\a:2);
