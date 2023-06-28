@@ -126,3 +126,121 @@
   \node at (0,-1.5) [right] {$\therefore\ b^2+c^2-2bc\cos A=a^2$};
 \end{tikzpicture}
 \end{figure}
+\begin{figure}[ht]\caption{加法定理（その1）}
+\begin{tikzpicture}
+  \def\a{25}
+  \def\b{35}
+  \draw(-5:4)arc(-5:95:4);
+  \draw[->](-0.5,0)--(4.5,0);
+  \draw[->](0,-0.5)--(0,4.5);
+  \node[below left]at(0,0){O};
+  \node[below right]at(4,0){$1$};
+  \coordinate(A) at (\a:4);
+  \coordinate(B) at ({\a+\b}:4);
+  \coordinate(O) at (0,0);
+  \coordinate(C) at (A|-O);
+  \coordinate(D) at ($(O)!(B)!(A)$);
+  \coordinate(E) at (B-|D);
+  \coordinate(F) at (E-|O);
+  \coordinate(G) at (E|-O);
+  \draw[line width=2pt](O)--(D)node[midway, above,sloped]{$\cos\beta$};
+  \draw(D)--(A);
+  \draw(O)--(B);
+  \draw(A)--(C);
+  \coordinate(C0) at ($(C)!2mm!(A)!2mm!90:(A)$);
+  \draw(C0)--(C0|-C);
+  \draw(C0)--(C0-|C);  
+  \draw[line width=2pt](B)--(D)node[midway, below,sloped]{$\sin\beta$};
+  \coordinate(D0) at ($(D)!2mm!(B)!2mm!90:(B)$);
+  \draw(D0)--($(A)!(D0)!(D)$);
+  \draw(D0)--($(B)!(D0)!(D)$);
+  \coordinate(E0) at ($(E)!2mm!(B)!2mm!90:(B)$);
+  \draw(E0)--(E0|-E);
+  \draw(E0)--(E0-|E);  
+  \draw(E)--(F);
+  \draw(E)--(G);
+  \coordinate(F0) at ($(F)!2mm!(O)!2mm!90:(O)$);
+  \draw(F0)--(F0|-F);
+  \draw(F0)--(F0-|F);  
+  \coordinate(G0) at ($(G)!2mm!(O)!2mm!-90:(O)$);
+  \draw(G0)--(G0|-G);
+  \draw(G0)--(G0-|G);
+  \pic["$\alpha$", draw, angle eccentricity=2, angle radius=0.3cm]
+  {angle=C--O--A};
+  \pic["$\beta$", draw, angle eccentricity=1.5, angle radius=0.4cm]
+  {angle=A--O--B};
+  \pic["$\alpha$", draw, angle eccentricity=1.7, angle radius=0.4cm]
+  {angle=E--D--B};
+  \draw[decorate, decoration={brace, mirror, raise=3pt}](O)--(G)
+  node[midway, below=3pt]{$\cos\alpha\cos\beta$};
+  \draw[decorate, decoration={brace, mirror, raise=3pt}](G)--(D)
+  node[midway, right=5pt]{$\sin\alpha\cos\beta$};
+  \draw[decorate, decoration={brace, mirror, raise=3pt}](D)--(E)
+  node[midway, right=5pt]{$\cos\alpha\sin\beta$};
+  \draw[decorate, decoration={brace, raise=3pt}](B)--(E)
+  node[midway, above right=3pt and -5pt]{$\sin\alpha\sin\beta$};
+  \coordinate(B1) at ($(B)+(0,0.5)$);
+  \draw[decorate, decoration={brace, raise=3pt}](O|-B1)--(B1)
+  node[midway, above=3pt]{$\cos(\alpha+\beta)$};
+  \draw[dashed](B)--(B1);
+  \draw[decorate, decoration={brace, raise=3pt}](O)--(F)
+  node[midway, left=5pt]{$\sin(\alpha+\beta)$};
+\end{tikzpicture}
+\end{figure}
+\begin{figure}[!ht]\caption{加法定理（その2）}
+\begin{tikzpicture}
+  \def\a{40}
+  \def\b{65}
+  \def\shift{6}
+  \coordinate(O0) at (0,0);
+  \coordinate(O1) at (\shift,0);
+  \coordinate(A0) at (\a:2);
+  \coordinate(P) at (2,0);
+  \coordinate(Q) at ({\a+\b}:2);
+  \coordinate(R) at ($(-\a:2)+(\shift,0)$);
+  \coordinate(S) at ($(\b:2)+(\shift,0)$);
+  \coordinate(A1) at ({\shift+2},0);
+  \draw(0,0)circle[radius=2];
+  \draw[->](-2.5,0)--(2.5,0) node[pos=1, right]{$x$};
+  \draw[->](0,-2.5)--(0,2.5) node[pos=1, right]{$y$};
+  \draw(\shift,0)circle[radius=2];
+  \draw[->]({\shift-2.5},0)--({\shift+2.5},0) node[pos=1, right]{$x$};
+  \draw[->](\shift,-2.5)--(\shift,2.5) node[pos=1, right]{$y$};
+  \draw(O0)--(A0);
+  \draw(O0)--(Q);
+  \draw(O0)--(Q);
+  \fill(Q)circle[radius=1pt];
+  \node[pin={[pin distance=0.5cm, pin edge={<-,thick}]90:
+    $\mathrm{Q}(\cos(\alpha+\beta),\sin(\alpha+\beta))$}] at (Q) {};
+  \fill(P)circle[radius=1pt]node[below right]{P}node[above right]{$1$};
+  \pic["$\alpha$", draw, angle eccentricity=2, angle radius=0.2cm]
+  {angle=P--O0--A0};
+  \pic["$\beta$", draw, angle eccentricity=2, angle radius=0.3cm]
+  {angle=A0--O0--Q};
+  \draw(P)--(Q);
+  \draw(O1)--(R);
+  \draw(O1)--(S);
+  \pic["$\alpha$", draw, angle eccentricity=2, angle radius=0.2cm]
+  {angle=R--O1--A1};
+  \pic["$\beta$", draw, angle eccentricity=2, angle radius=0.3cm]
+  {angle=A1--O1--S};
+  \fill(R)circle[radius=1pt]node[right]
+  {$\mathrm{R}(\cos\alpha,-\sin\alpha)$};
+  \fill(S)circle[radius=1pt]node[right]
+  {$\mathrm{S}(\cos\beta,\sin\beta)$};
+  \node[above right]at(A1){$1$};
+  \draw(R)--(S);
+  \node[right]at(-2,-4){
+    \begin{minipage}[t]{10cm}
+    \begin{align*}
+      \mathrm{PQ}&=\mathrm{RS}\\
+      \mathrm{PQ}^2&=(\cos(\alpha+\beta)-1) + (\sin(\alpha+\beta))^2\\
+                 &=2-2\cos(\alpha+\beta)\\
+      \mathrm{RS}^2&=(\cos\beta-\cos\alpha)^2+(\sin\beta+\sin\alpha)^2\\
+      &=2-2(\cos\beta\cos\alpha-\sin\beta\sin\alpha)
+    \end{align*}
+    \end{minipage}
+  };
+\end{tikzpicture}
+\end{figure}
+
