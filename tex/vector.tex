@@ -98,4 +98,70 @@
   \draw[decorate, decoration={brace, raise=4pt}](0,0)--(5,2);
 \end{tikzpicture}
 \end{figure}
-
+\begin{figure}\caption{ベクトルの射影（その1）}
+\begin{tikzpicture}
+  \coordinate(A) at (3,1);
+  \coordinate(B) at (4,3);
+  \coordinate(O) at (0,0);
+  \coordinate(H) at ($(O)!(B)!(A)$);
+  \coordinate(O0) at ($(O)!1mm!-90:(H)$);  
+  \coordinate(H0) at ($(H)!1mm!90:(O)$);
+  \coordinate(H1) at ($(H)!3mm!(O)!3mm!-90:(O)$);
+  \draw[-Stealth](O)--(A)node[midway, above]{$\bm{a}$};
+  \draw[-Stealth](O)--(B)node[midway, left]{$\bm{b}$};
+  \draw[dashed](A)--(H);
+  \draw[dashed](B)--(H);
+  \draw (H1)--($(B)!(H1)!(H)$);
+  \draw (H1)--($(O)!(H1)!(H)$);
+  \fill(O) circle[radius=1pt]node[left]{O};
+  \fill(A) circle[radius=1pt]node[above]{A};
+  \fill(B) circle[radius=1pt]node[above]{B};
+  \fill(H) circle[radius=1pt]node[above right]{H};
+  \draw[-Stealth, thick](O0)--(H0);
+  \pic [draw, "$\theta$", angle eccentricity=1.5]{angle=A--O--B};
+\end{tikzpicture}
+\end{figure}
+\begin{figure}\caption{ベクトルの射影（その2）}
+\begin{tikzpicture}
+  \coordinate(A) at (3,1);
+  \coordinate(B) at (-e,3);
+  \coordinate(O) at (0,0);
+  \coordinate(H) at ($(O)!(B)!(A)$);
+  \coordinate(O0) at ($(O)!1mm!90:(H)$);  
+  \coordinate(H0) at ($(H)!1mm!-90:(O)$);
+  \coordinate(H1) at ($(H)!3mm!(O)!3mm!90:(O)$);
+  \draw[-Stealth](O)--(A)node[midway, above]{$\bm{a}$};
+  \draw[-Stealth](O)--(B)node[midway, left]{$\bm{b}$};
+  \draw[dashed](A)--(H);
+  \draw[dashed](B)--(H);
+  \draw (H1)--($(B)!(H1)!(H)$);
+  \draw (H1)--($(O)!(H1)!(H)$);
+  \fill(O) circle[radius=1pt]node[below right]{O};
+  \fill(A) circle[radius=1pt]node[above]{A};
+  \fill(B) circle[radius=1pt]node[above]{B};
+  \fill(H) circle[radius=1pt]node[below left]{H};
+  \draw[-Stealth, thick](O0)--(H0);
+  \pic [draw, "$\theta$", angle eccentricity=1.5]{angle=A--O--B};
+\end{tikzpicture}
+\end{figure}
+\begin{figure}[!ht]\caption{直線のパラメータ表現}
+\begin{tikzpicture}
+  \coordinate(A) at (0,4);
+  \coordinate(B) at (4,3);
+  \coordinate(C) at ($(A)!0.2!(B)$);
+  \coordinate(D) at ($(A)!0.3!(B)$);
+  \coordinate(C1) at ($(C)!5mm!90:(B)$);
+  \coordinate(D1) at ($(D)!5mm!90:(B)$);
+  \coordinate(E) at ($(A)!0.6!(B)$);
+  \coordinate(C2) at ($(C)!1mm!90:(B)$);
+  \coordinate(E2) at ($(E)!1mm!90:(B)$);
+  \coordinate(O) at (0,0);
+  \draw(A)--(B)node[right]{$\ell$};
+  \draw[-Stealth](O)--(C)node[midway, left]{$\bm{p}$}node[below left]{P};
+  \fill(C)circle[radius=1pt];
+  \draw[-Stealth](C1)--(D1)node[above]{$\bm{a}$};
+  \fill(E)circle[radius=1pt];
+  \draw[-Stealth](C2)--(E2)node[midway,above]{$t\bm{a}$};
+  \draw[-Stealth](O)--(E)node[midway, right]{$\bm{x}$}node[below right]{X};
+\end{tikzpicture}
+\end{figure}
