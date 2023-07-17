@@ -165,3 +165,48 @@
   \draw[-Stealth](O)--(E)node[midway, right]{$\bm{x}$}node[below right]{X};
 \end{tikzpicture}
 \end{figure}
+\begin{figure}[!ht]\caption{内分点}
+\begin{tikzpicture}
+  \coordinate(P) at (0,0);
+  \coordinate(Q) at (3,1);
+  \coordinate(R) at ($(P)!1/4!(Q)$);
+  \draw (P)--(Q);
+  \foreach \i in {1,...,3}
+   \draw ($(P)!{\i/4}!(Q)!1mm!90:(Q)$)--($(P)!{\i/4}!(Q)!1mm!-90:(Q)$);
+   \foreach \i in {0,...,3}
+   {
+     \draw ($(P)!{\i/4+1/8-0.01}!(Q)!0.5mm!90:(Q)$)--($(P)!{\i/4+1/8-0.01}!(Q)!0.5mm!-90:(Q)$);
+     \draw ($(P)!{\i/4+1/8+0.01}!(Q)!0.5mm!90:(Q)$)--($(P)!{\i/4+1/8+0.01}!(Q)!0.5mm!-90:(Q)$);
+   }
+   \draw (P) [bend left=50]to (R);
+   \draw [decorate, decoration={raise=2pt, text along path, text={\ding{172}}, text align={center}}] (P) [bend left=50]to (R);
+   \draw (R) [bend left=15]to (Q);
+   \draw [decorate, decoration={raise=2pt, text along path, text={\ding{174}}, text align={center}}] (R) [bend left=15]to (Q);
+   \fill(P) circle[radius=1pt] node[below]{P};
+   \fill(Q) circle[radius=1pt] node[below]{Q};
+   \fill(R) circle[radius=1pt] node[below]{R};
+\end{tikzpicture}
+\end{figure}
+\begin{figure}[!ht]\caption{外分点}
+\begin{tikzpicture}
+  \coordinate(P) at (0,0);
+  \coordinate(R) at (3,1);
+  \coordinate(Q) at ($(P)!{2/3}!(R)$);
+  \draw (P)--(Q);
+  \draw[dashed] (Q)--(R);
+  \foreach \i in {1,...,2}
+    \draw ($(P)!{\i/3}!(R)!1mm!90:(Q)$)--($(P)!{\i/3}!(R)!1mm!-90:(Q)$);
+  \foreach \i in {0,...,2}
+   {
+     \draw ($(P)!{\i/3+1/6-0.01}!(R)!0.5mm!90:(Q)$)--($(P)!{\i/3+1/6-0.01}!(R)!0.5mm!-90:(Q)$);
+     \draw ($(P)!{\i/3+1/6+0.01}!(R)!0.5mm!90:(Q)$)--($(P)!{\i/3+1/6+0.01}!(R)!0.5mm!-90:(Q)$);
+   }
+   \draw (P) [bend left=20]to (R);
+   \draw [decorate, decoration={raise=2pt, text along path, text={\ding{174}}, text align={center}}] (P) [bend left=20]to (R);
+   \draw (R) [bend left=40]to (Q);
+   \draw [decorate, decoration={raise=-3mm, text along path, text={\ding{172}}, text align={center}}] (Q) [bend right=40]to (R);
+   \fill(P) circle[radius=1pt] node[below]{P};
+   \fill(Q) circle[radius=1pt] node[below]{Q};
+   \fill(R) circle[radius=1pt] node[below]{R};
+\end{tikzpicture}
+\end{figure}
