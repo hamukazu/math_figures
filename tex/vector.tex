@@ -210,3 +210,37 @@
    \fill(R) circle[radius=1pt] node[below]{R};
 \end{tikzpicture}
 \end{figure}
+\begin{figure}[!ht]\caption{外積}
+\begin{tikzpicture}
+  \coordinate(O) at (0,0) node[left]{O};;
+  \coordinate(A) at (2,-1);
+  \coordinate(B) at (3,1);
+  \coordinate(C) at (0,5);
+  \coordinate(D) at ($(A)+(B)$);
+  \node[left] at (O) {O};
+  \draw[-Stealth] (O)--(A)node[midway,below]{$\bm{a}$}node[below]{A};
+  \draw[-Stealth] (O)--(B)node[midway,above]{$\bm{b}$}node[above]{B};
+  \draw[-Stealth] (O)--(C)node[midway,left]{$\bm{a}\times\bm{b}$};
+  \draw[dashed] (A)--(D)node[right]{D}--(B);
+  \fill[pattern=north west lines](O)--(A)--(D)--(B)--cycle;
+  \node[fill=white] at ($0.5*(D)$) {$\Vert \bm{a}\times\bm{b} \Vert$};
+\end{tikzpicture}
+\end{figure}
+\begin{figure}[!ht]\caption{ベクトルの張る平行四辺形の面積}
+\begin{tikzpicture}
+  \coordinate(O) at (0,0);
+  \coordinate(A) at (3,0);
+  \coordinate(B) at (1,2);
+  \coordinate(D) at ($(A)+(B)$);
+  \coordinate(H) at ($(O)!(B)!(A)$);
+  \coordinate(H1) at ($(H)!2mm!(O)!2mm!-90:(O)$);
+  \draw[-Stealth] (O)--(A)node[midway,below]{$\bm{a}$};
+  \draw[-Stealth] (O)--(B)node[midway,above left]{$\bm{b}$};
+  \draw [dashed] (B)--(H);
+  \draw (B)--(D)--(A);
+  \pic [draw, "$\theta$", angle radius=3mm, angle eccentricity=1.5]{angle=A--O--B};
+  \draw (H1)--($(O)!(H1)!(H)$);
+  \draw (H1)--($(B)!(H1)!(H)$);
+  \draw[decorate, decoration={brace, raise=4pt}](B)--(H)node[midway,right=6pt]{$\Vert \bm{b}\Vert\sin\theta$};
+\end{tikzpicture}
+\end{figure}
